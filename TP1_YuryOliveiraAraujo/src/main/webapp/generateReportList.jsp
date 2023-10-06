@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hospital de Cardiologia - Lista de Laudos para serem Realizados</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <c:import url="logout.jsp"/>
@@ -19,25 +20,50 @@
 
     <br><br>
 
-    <c:if test="${not empty requestScope.successMessage}">
-        <div style="color: green;">${requestScope.successMessage}</div>
-    </c:if>
+    <div class="container">
+        <h5>Lista de Laudos para serem Realizados</h5>
 
-    <c:forEach var="exam" items="${examDAO.obtainExamsByStatus(ExamStatus.WAITING_REPORT)}">
-        Paciente: ${exam.patientCpf} Tipo: ${exam.examType } 
-        Exame realizado em: 
         <c:choose>
-            <c:when test="${not empty exam.datePerformed}">
-                <fmt:formatDate value="${exam.datePerformed.time}" pattern="dd/MM/yyyy"/>
+            <c:when test="${not empty requestScope.successMessage}">
+                <div class="alert alert-success">${requestScope.successMessage}</div>
+            </c:when>
+            <c:when test="${not empty examDAO.obtainExamsByStatus(ExamStatus.WAITING_REPORT)}">
+                <table class="thead table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Paciente</th>
+                            <th>Tipo</th>
+                            <th>Exame realizado em</th>
+                            <th>Status</th>
+                            <th>Realizar Laudo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="exam" items="${examDAO.obtainExamsByStatus(ExamStatus.WAITING_REPORT)}">
+                            <tr>
+                                <td>${exam.patientCpf}</td>
+                                <td>${exam.examType}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${not empty exam.datePerformed}">
+                                            <fmt:formatDate value="${exam.datePerformed.time}" pattern="dd/MM/yyyy"/>
+                                        </c:when>
+                                        <c:otherwise>Data não disponível</c:otherwise>
+                                    </c:choose>
+                                </td>
+                                <td>${exam.status}</td>
+                                <td>
+                                    <a href="generateReport.jsp?id=${exam.id}&patientCpf=${exam.patientCpf}&examType=${exam.examType}&hypothesis=${exam.hypothesis}&datePerformed=<fmt:formatDate value="${exam.datePerformed.time}" pattern="dd/MM/yyyy"/>&doctorCrm=${exam.doctorCrm}" class="btn btn-primary">Realizar Laudo</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
             </c:when>
             <c:otherwise>
-                Data não disponível
+                <div class="alert alert-info">Não há laudos para serem realizados.</div>
             </c:otherwise>
         </c:choose>
-        Status: ${exam.status }
-        <a href="generateReport.jsp?id=${exam.id}&patientCpf=${exam.patientCpf}&examType=${exam.examType}
-            &hypothesis=${exam.hypothesis}&datePerformed=
-            <fmt:formatDate value="${exam.datePerformed.time}" pattern="dd/MM/yyyy"/> &doctorCrm=${exam.doctorCrm}">Realizar Laudo</a><br>    
-    </c:forEach>
+    </div>
 </body>
 </html>

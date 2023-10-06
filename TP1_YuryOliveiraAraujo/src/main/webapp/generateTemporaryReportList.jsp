@@ -6,7 +6,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hospital de Cardiologia - Lista de Laudos para serem Realizados</title>
+    <title>Hospital de Cardiologia - Lista de Laudos Provisórios</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <c:import url="logout.jsp"/>
@@ -19,16 +20,40 @@
 
     <br><br>
 
-    <c:if test="${not empty requestScope.successMessage}">
-        <div style="color: green;">${requestScope.successMessage}</div>
-    </c:if>
-
-    <c:forEach var="report" items="${reportDAO.obtainReportsByStatus(ReportStatus.TEMPORARY)}">
-	    CRM do Médico: ${report.crm} 
-	    Conclusão: ${report.conclusion} 
-	    Status: ${report.status }
-    <a href="generateDefinitiveReport.jsp?id=${report.id}&examId=${report.examId}&crm=${report.crm}&description=${report.description}&conclusion=${report.conclusion}&status=${report.status}">Ver mais detalhes</a><br>    
-	</c:forEach>
-
+    <div class="container">
+    	<c:if test="${not empty requestScope.successMessage}">
+	        <div class="alert alert-success">${requestScope.successMessage}</div>
+	    </c:if>
+    	
+    	<h5>Lista de Laudos Provisórios</h5>
+    	<c:choose>
+        <c:when test="${not empty reportDAO.obtainReportsByStatus(ReportStatus.TEMPORARY)}">
+            
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>CRM do Médico</th>
+                        <th>Conclusão</th>
+                        <th>Status</th>
+                        <th>Detalhes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="report" items="${reportDAO.obtainReportsByStatus(ReportStatus.TEMPORARY)}">
+                        <tr>
+                            <td>${report.crm}</td>
+                            <td>${report.conclusion}</td>
+                            <td>${report.status}</td>
+                            <td><a href="generateDefinitiveReport.jsp?id=${report.id}&examId=${report.examId}&crm=${report.crm}&description=${report.description}&conclusion=${report.conclusion}&status=${report.status}">Ver mais detalhes</a></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </c:when>
+        <c:otherwise>
+                <div class="alert alert-info">Não há laudos provisórios.</div>
+            </c:otherwise>
+        </c:choose>
+    </div>
 </body>
 </html>
