@@ -17,6 +17,7 @@ Nesta organização de saúde há vários papéis atribuídos aos médicos, que 
 - médico-residente - uma modalidade de ensino de pós-graduação destinada a médicos, na forma de curso de especialização, funcionando em Instituições de Saúde, com a orientação de profissionais médicos;
 - médico-docente - são os professores da universidade e responsáveis pelo processo de ensino-aprendizagem dos médicos-residentes;
 - demais médicos que trabalham no hospital, realizam as consultas e solicitam exames aos pacientes.
+  
 <br>Todo médico tem um nome e um número de CRM (Conselho Regional de Medicina). O CRM pode ser usado como chave primária.
 Além dos atributos acima, os médicos-docentes contém também um atributo que identifica a sua titulação na universidade (doutor, assistente, livre-docente ou titular); e os médicos-residentes contém um atributo que identifica o ano de início da residência e sua matrícula (formado pelo ano de início da residência+CRM).
 
@@ -27,18 +28,21 @@ Para acessar a aplicação é necessário realizar login. As informações de us
 
 ## Solicitação de Pedido de Exame
 Um médico que não seja docente ou residente pode emitir um pedido de exame; para isto, deve informar:
-<br>i) o registro do paciente (CPF). A partir daí, o programa acessa o sistema de registro de pacientes, de onde são recuperados seus dados pessoais (CPF, nome, e-mail, sexo, idade e data de nascimento), onde a idade é calculada em função da data de nascimento. Deixar 10 dados de pacientes cadastrados direto no banco de dados.
-<br>ii) o médico seleciona um exame por pedido (apenas os exames ecocardiograma ou eletrocardiograma são realizados. Deixar cadastrado direto na lista de seleção na página de cadastro).
+- o registro do paciente (CPF). A partir daí, o programa acessa o sistema de registro de pacientes, de onde são recuperados seus dados pessoais (CPF, nome, e-mail, sexo, idade e data de nascimento), onde a idade é calculada em função da data de nascimento. Deixar 10 dados de pacientes cadastrados direto no banco de dados.
+- o médico seleciona um exame por pedido (apenas os exames ecocardiograma ou eletrocardiograma são realizados).
+
 Caso o paciente já tenha um pedido para o exame selecionado na situação “Aguardando Exame”, o sistema não deve permitir que outro pedido seja feito para o mesmo paciente e o mesmo exame.
 Sendo assim, essa verificação deve ser feita antes da emissão do pedido de exame.
 Caso o pedido ainda não exista, o médico informa a hipótese diagnóstica que deve ser baseada no Código Internacional de Doenças (CID) – onde ficam cadastradas todos os nomes das doenças.
+
 Usar a lista abaixo como opções de hipóteses diagnósticas para CIDs de doenças do coração:
-<br>I46 - Parada cardíaca
-<br>I47 - Taquicardia paroxística
-<br>I48 - Flutter e fibrilacao atrial
-<br>I49 - Outras arritmias cardíacas
-<br>I42 - Cardiomiopatias
-<br>Por fim, ele solicita a emissão do pedido, e o sistema salva e envia o pedido do exame para o e-mail do paciente contendo todas as informações do exame.
+- I46 - Parada cardíaca
+- I47 - Taquicardia paroxística
+- I48 - Flutter e fibrilacao atrial
+- I49 - Outras arritmias cardíacas
+- I42 - Cardiomiopatias
+
+Por fim, ele solicita a emissão do pedido, e o sistema salva e envia o pedido do exame para o e-mail do paciente contendo todas as informações do exame.
 No pedido do exame deve constar os dados do paciente, a data prevista de realização (considere 3 dias após a solicitação), o exame que foi solicitado, as recomendações para realização do exame, por exemplo, não comer uma hora antes do exame, e o CRM e nome do médico que solicitou o exame.
 
 ![image](https://github.com/YuryOAraujo/TP1-DesenvolvimentoDeAplicacoesWeb/assets/127779626/c8b4729a-df3b-41d0-a82d-27b684bc463b)
