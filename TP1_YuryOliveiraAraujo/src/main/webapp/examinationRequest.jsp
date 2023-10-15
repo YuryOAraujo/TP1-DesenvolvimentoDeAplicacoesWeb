@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>Hospital de Cardiologia - Solicitação de Exame</title>
 <link rel="stylesheet" href="css/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.5/dist/jquery.inputmask.min.js"></script>
 </head>
 <body>
     <c:import url="logout.jsp"/>
@@ -28,7 +30,7 @@
                     <h5 class="card-title">Solicitação de Exame</h5>
                     <div class="mb-3">
                         <label for="cpf" class="form-label"><b>CPF do Paciente:</b></label>
-                        <input type="text" id="cpf" name="cpf" value="${param.cpf}" class="form-control" required>
+                        <input type="text" id="cpf" name="cpf" value="${param.cpf}" class="form-control" required>                        
                     </div>
                     <div class="mb-3">
                         <label for="examinationType" class="form-label"><b>Exame:</b></label>
@@ -60,5 +62,11 @@
             </form>
         </div>
     </div>
+    
+    <script>
+	    $(document).ready(function() {
+	        $('#cpf').inputmask('999.999.999-99');
+	    });
+	</script>    
 </body>
 </html>

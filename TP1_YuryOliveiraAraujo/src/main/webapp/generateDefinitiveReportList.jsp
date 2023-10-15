@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Hospital de Cardiologia - Lista de Laudos Definitivos</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.5/dist/jquery.inputmask.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -69,5 +71,11 @@
         	</div>
         </div>
     </div>
+    
+    <script>
+	    $(document).ready(function() {
+	        $('#cpf').inputmask('999.999.999-99');
+	    });
+	</script>   
 </body>
 </html>
