@@ -17,7 +17,7 @@ Nesta organização de saúde há vários papéis atribuídos aos médicos, que 
 - médico-residente - uma modalidade de ensino de pós-graduação destinada a médicos, na forma de curso de especialização, funcionando em Instituições de Saúde, com a orientação de profissionais médicos;
 - médico-docente - são os professores da universidade e responsáveis pelo processo de ensino-aprendizagem dos médicos-residentes;
 - demais médicos que trabalham no hospital, realizam as consultas e solicitam exames aos pacientes.
-Todo médico tem um nome e um número de CRM (Conselho Regional de Medicina). O CRM pode ser usado como chave primária.
+<br>Todo médico tem um nome e um número de CRM (Conselho Regional de Medicina). O CRM pode ser usado como chave primária.
 Além dos atributos acima, os médicos-docentes contém também um atributo que identifica a sua titulação na universidade (doutor, assistente, livre-docente ou titular); e os médicos-residentes contém um atributo que identifica o ano de início da residência e sua matrícula (formado pelo ano de início da residência+CRM).
 
 ## Login
@@ -27,8 +27,8 @@ Para acessar a aplicação é necessário realizar login. As informações de us
 
 ## Solicitação de Pedido de Exame
 Um médico que não seja docente ou residente pode emitir um pedido de exame; para isto, deve informar:
-i) o registro do paciente (CPF). A partir daí, o programa acessa o sistema de registro de pacientes, de onde são recuperados seus dados pessoais (CPF, nome, e-mail, sexo, idade e data de nascimento), onde a idade é calculada em função da data de nascimento. Deixar 10 dados de pacientes cadastrados direto no banco de dados.
-ii) o médico seleciona um exame por pedido (apenas os exames ecocardiograma ou eletrocardiograma são realizados. Deixar cadastrado direto na lista de seleção na página de cadastro).
+<br>i) o registro do paciente (CPF). A partir daí, o programa acessa o sistema de registro de pacientes, de onde são recuperados seus dados pessoais (CPF, nome, e-mail, sexo, idade e data de nascimento), onde a idade é calculada em função da data de nascimento. Deixar 10 dados de pacientes cadastrados direto no banco de dados.
+<br>ii) o médico seleciona um exame por pedido (apenas os exames ecocardiograma ou eletrocardiograma são realizados. Deixar cadastrado direto na lista de seleção na página de cadastro).
 Caso o paciente já tenha um pedido para o exame selecionado na situação “Aguardando Exame”, o sistema não deve permitir que outro pedido seja feito para o mesmo paciente e o mesmo exame.
 Sendo assim, essa verificação deve ser feita antes da emissão do pedido de exame.
 Caso o pedido ainda não exista, o médico informa a hipótese diagnóstica que deve ser baseada no Código Internacional de Doenças (CID) – onde ficam cadastradas todos os nomes das doenças.
