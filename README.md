@@ -31,14 +31,14 @@ i) o registro do paciente (CPF). A partir daí, o programa acessa o sistema de r
 ii) o médico seleciona um exame por pedido (apenas os exames ecocardiograma ou eletrocardiograma são realizados. Deixar cadastrado direto na lista de seleção na página de cadastro).
 Caso o paciente já tenha um pedido para o exame selecionado na situação “Aguardando Exame”, o sistema não deve permitir que outro pedido seja feito para o mesmo paciente e o mesmo exame.
 Sendo assim, essa verificação deve ser feita antes da emissão do pedido de exame.
-Instituto Federal do Sudeste de Minas Gerais - Barbacena Tecnologia em Sistemas para Internet Desenvolvimento de Aplicação Web Trabalho Prático I Caso o pedido ainda não exista, o médico informa a hipótese diagnóstica que deve ser baseada no Código Internacional de Doenças (CID) – onde ficam cadastradas todos os nomes das doenças.
+Caso o pedido ainda não exista, o médico informa a hipótese diagnóstica que deve ser baseada no Código Internacional de Doenças (CID) – onde ficam cadastradas todos os nomes das doenças.
 Usar a lista abaixo como opções de hipóteses diagnósticas para CIDs de doenças do coração:
-I46 - Parada cardíaca
-I47 - Taquicardia paroxística
-I48 - Flutter e fibrilacao atrial
-I49 - Outras arritmias cardíacas
-I42 - Cardiomiopatias
-Por fim, ele solicita a emissão do pedido, e o sistema salva e envia o pedido do exame para o e-mail do paciente contendo todas as informações do exame.
+<br>I46 - Parada cardíaca
+<br>I47 - Taquicardia paroxística
+<br>I48 - Flutter e fibrilacao atrial
+<br>I49 - Outras arritmias cardíacas
+<br>I42 - Cardiomiopatias
+<br>Por fim, ele solicita a emissão do pedido, e o sistema salva e envia o pedido do exame para o e-mail do paciente contendo todas as informações do exame.
 No pedido do exame deve constar os dados do paciente, a data prevista de realização (considere 3 dias após a solicitação), o exame que foi solicitado, as recomendações para realização do exame, por exemplo, não comer uma hora antes do exame, e o CRM e nome do médico que solicitou o exame.
 
 ![image](https://github.com/YuryOAraujo/TP1-DesenvolvimentoDeAplicacoesWeb/assets/127779626/c8b4729a-df3b-41d0-a82d-27b684bc463b)
